@@ -10,7 +10,7 @@ Annual growth rates of social security fund revenue (ssf), industrial production
 # Model
 In this study, I use a Bayesian Vector Autoregression (BVAR) framework, which is well-suited for capturing complex dynamic relationships among macroeconomic variables while mitigating the risk of over-parameterization. To address potential small-sample bias, I include a Minnesota prior, thereby guiding the model toward more plausible parameter estimates and reducing overfitting. Because the data display signs of nonstationarity, I further incorporate a sum-of-coefficients prior to help stabilize the estimated relationships over time. Lastly, I adopt a hierarchical hyperparameter approach that allows the priors to remain data-driven, minimizing subjective judgment in the estimation process.
 
-`> summary(model)`
+`summary(model)`
 <pre>Bayesian VAR consisting of 32 observations, 4 variables and 3 lags.
 Time spent calculating: 3.21 mins
 Hyperparameters: lambda, soc 
@@ -44,3 +44,63 @@ di  12.266 3.806  7.448  7.060
 rs  18.804 4.859  7.060 14.024
 
 Log-Likelihood: -302.1262 </pre>
+
+# Identification and Impulse Response Functions
+To isolate the structural shocks in the BVAR, I impose sign restrictions aligned with theoretical expectations: a social security policy shock is characterized by a positive effect on social security fund revenue but a negative effect on industrial production, disposable income, and retail sales. In contrast, a labor demand shock positively affects all four variables. These partial-identification constraints help disentangle the policy-induced disturbances from broader labor market dynamics, thereby enabling a clearer view of how changes in social insurance requirements propagate through the economy.
+
+`print(opt_signs)`
+<pre>Object with settings for computing impulse responses.
+Horizon: 10
+Identification: Sign restrictions
+Chosen restrictions:
+			      Shock to
+			        Var1    Var2    Var3    Var4	 
+Response of	Var1	 +       +       NA      NA	
+
+		    Var2	 -       +       NA      NA	
+
+		    Var3	 -       +       NA      NA	
+
+		    Var4	 -       +       NA      NA	
+FEVD: TRUE</pre>
+
+Based on the specified sign restrictions, the resulting impulse response functions (with 68% confidence bands) are shown below.
+
+`plot(irf(model))`
+
+<img width="711" height="527" alt="IRF" src="https://github.com/user-attachments/assets/c9628991-0f24-44ec-b3b7-e64260f501d4" />
+
+# Assumptions
+Assumption 1: After the new policy is implemented, the number of people paying into social insurance will increase by about 100 million. 
+
+*Given that mainland China currently has roughly 700 million employed people, about 400 million of whom already pay social insurance and around 200 million are in flexible employment, this implies that approximately 100 million people are not yet contributing to social insurance.*
+
+Assumption 2: Each of these people will contribute an average of 1,000 yuan per month, i.e., 12,000 yuan per person per year.
+
+Assumption 1+2: That is, social security fund revenue will rise by `100 × 12,000 = 1,200,000` million yuan (about 1% of GDP).
+
+`assumption <- 100*12000`
+
+# Results
+Based on the above assumptions and impulse response functions, the following conclusions can be drawn:
+
+<img width="3840" height="2160" alt="impact on social security fund revenue" src="https://github.com/user-attachments/assets/8a8e9b6c-88bb-4f6c-8a2f-cb0239b8f45d" />
+
+<img width="3840" height="2160" alt="impact on industrial production" src="https://github.com/user-attachments/assets/3bca8eab-a3aa-4050-86e2-ea57f84d75ee" />
+
+<img width="3840" height="2160" alt="impact on disposable income" src="https://github.com/user-attachments/assets/0c799c24-c469-4c05-8dec-ee0ad472f227" />
+
+<img width="3840" height="2160" alt="impact on retail sales" src="https://github.com/user-attachments/assets/2be19c34-7476-4160-a03b-c6eee7f980e1" />
+
+# Discussion
+123
+
+# References
+Nikolas Kuschnig and Lukas Vashold (2021). BVAR: Bayesian Vector Autoregressions with Hierarchical Prior Selection in R. Journal of Statistical Software, 14, 1-27, DOI: 10.18637/jss.v100.i14.
+
+Domenico Giannone, Michele Lenza and Giorgio E. Primiceri (2015). Prior Selection for Vector Autoregressions. The Review of Economics and Statistics, 97:2, 436-451, DOI: 10.1162/REST_a_00483.
+
+
+
+
+
