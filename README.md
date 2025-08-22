@@ -98,7 +98,7 @@ Two caveats deserve attention:
 
 1.	The quantitative analysis above suggests that the new measures have a very large effect on the economy. Consequently, any missteps in the follow-up support policies could have significant repercussions, raising the level of uncertainty surrounding China’s economic outlook.
 
-2.	When rolling out economic support, the authorities will set priorities. For instance, against a backdrop of overcapacity they may favor boosting consumption over expanding production. This implies that different sectors of the economy could show increasingly divergent performances.
+2.	When rolling out economic support, the authorities will set priorities. For instance, against a backdrop of overcapacity, they may favor boosting consumption over expanding production, or supporting large companies over SMEs. This implies that different sectors of the economy could show increasingly divergent performance.
 
 
 # References
