@@ -77,7 +77,7 @@ Assumption 1: After the new policy is implemented, the number of people paying i
 
 Assumption 2: Each of these people will contribute an average of 1,000 yuan per month, i.e., 12,000 yuan per person per year.
 
-Assumption 1+2: That is, social security fund revenue will rise by `100 × 12,000 = 1,200,000` million yuan (about 1% of GDP).
+Assumption 1+2: That is, social security fund revenue will rise by `100 × 12,000 = 1,200,000` million yuan.
 
 `assumption <- 100*12000`
 
