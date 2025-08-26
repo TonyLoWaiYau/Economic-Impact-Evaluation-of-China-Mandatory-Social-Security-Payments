@@ -75,7 +75,7 @@ Assumption 1: After the new policy is implemented, the number of people paying s
 
 *Given that mainland China currently has about 700 million employed people, with around 400 million paying into social security and 200 million in flexible employment, roughly 100 million are not contributing as required.*
 
-*Because many companies will look for ways to evade payments—such as splitting full-time jobs into several part-time positions, hiring retirees, or using other illegal methods—and because some individuals (e.g., those nearing retirement) may be unwilling to resume payments, I estimate that only about half of the previously non-compliant workers will start contributing.*
+*Because many companies will look for ways to evade payments—such as splitting full-time jobs into several part-time positions, hiring retirees, or using other illegal methods—and because some individuals (e.g., those nearing retirement) may be unwilling to resume payments, I estimate that only about half of the previously non-compliant workers will start contributing, i.e., around 50 million.*
 
 Assumption 2: Each of these people will contribute an average of 1,000 yuan per month, i.e., 12,000 yuan per person per year.
 
